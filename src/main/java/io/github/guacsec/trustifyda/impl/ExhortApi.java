@@ -543,6 +543,7 @@ public final class ExhortApi implements Api {
   private Provider.Content resolveStackContent(String manifestFile) throws IOException {
     var manifestPath = Path.of(manifestFile);
     var provider = Ecosystem.getProvider(manifestPath);
+    var uri = buildAnalysisUri(S_API_V_5_ANALYSIS, getEndpoint());
     var content = provider.provideStack();
     commonHookAfterProviderCreatedSbomAndBeforeExhort();
     return content;
